@@ -5,6 +5,7 @@ import { denunciasParakeet } from "./denuncias-parakeet";
 import { lpe } from "./lpe";
 import { paginaInstitucional } from "./pagina-institucional";
 import { proyectarg } from "./proyectarg";
+import { remolquesColon } from "./remolques-colon";
 
 export const workProjectDetails: WorkProjectDetail[] = [
   dentoImagen,
@@ -13,6 +14,7 @@ export const workProjectDetails: WorkProjectDetail[] = [
   agusto,
   lpe,
   paginaInstitucional,
+  remolquesColon,
 ];
 
 /** Proyectos por hoja A4 en la sección del dossier. */

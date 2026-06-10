@@ -16,7 +16,7 @@ export const paginaInstitucional: WorkProjectDetail = {
     {
       type: "hero",
       subtitle:
-        "Página institucional **multi-idioma** de Contarg — la startup donde trabajo — con la última **renovación** del sitio en producción.",
+        "Página institucional **multi-idioma** de Contarg — la startup donde trabajé — con la última **renovación** del sitio en producción.",
     },
     {
       type: "gallery",
@@ -47,7 +47,7 @@ export const paginaInstitucional: WorkProjectDetail = {
     {
       type: "text",
       paragraphs: [
-        "Contarg es la **startup donde trabajo** y este proyecto corresponde a su **página institucional**: el sitio donde se presentan servicios de consultoría, desarrollo de software e integraciones. Comunica la propuesta de valor de la empresa y canaliza el acceso a demos, contacto comercial y soluciones del ecosistema **Contarg App**.",
+        "Contarg es la **startup donde trabajé** y este proyecto corresponde a su **página institucional**: el sitio donde se presentan servicios de consultoría, desarrollo de software e integraciones. Comunica la propuesta de valor de la empresa y canaliza el acceso a demos, contacto comercial y soluciones del ecosistema **Contarg App**.",
         "Participé **en dos ocasiones** en el desarrollo frontend de la página institucional. La intervención más reciente corresponde a la **renovación actual del sitio**, que se encuentra **en producción** en contarg.com, con un diseño renovado, secciones de servicios y presentación de productos del portfolio.",
         "**Desde el frontend** implementé las vistas del sitio, priorizando una experiencia clara para visitantes y clientes potenciales, con énfasis en la navegación entre servicios, novedades y acceso a las distintas soluciones de la empresa.",
       ],
