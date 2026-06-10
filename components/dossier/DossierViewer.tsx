@@ -40,7 +40,7 @@ function DossierContent({
       case 5:
         return <SkillsPage skills={skills} />;
       case 6:
-        return <ContactPage profile={profile} />;
+        return <ContactPage profile={profile} onPageSelect={goToPage} />;
       default:
         return null;
     }

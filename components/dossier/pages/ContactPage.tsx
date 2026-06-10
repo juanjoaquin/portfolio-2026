@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { ArrowUp, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Profile } from "@/types/portfolio";
 
@@ -20,6 +20,7 @@ function GitHubIcon({ className }: { className?: string }) {
 
 interface ContactPageProps {
   profile: Profile;
+  onPageSelect: (page: number) => void;
 }
 
 function ContactCard({
@@ -47,7 +48,7 @@ function ContactCard({
 const linkClass =
   "font-sans text-base font-medium text-doc-text transition-opacity hover:opacity-70 md:text-lg";
 
-export function ContactPage({ profile }: ContactPageProps) {
+export function ContactPage({ profile, onPageSelect }: ContactPageProps) {
   return (
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-8 border-b border-doc-border pb-4">
@@ -135,8 +136,16 @@ export function ContactPage({ profile }: ContactPageProps) {
         </div>
       </div>
 
-      <footer className="mt-10 border-t border-doc-border pt-6 text-sm text-doc-muted font-sans">
-        <p>Fin del documento — {profile.name}</p>
+      <footer className="mt-10 flex items-center justify-between gap-4 border-t border-doc-border pt-6 font-sans">
+        <p className="text-sm text-doc-muted">Fin del documento — {profile.name}</p>
+        <button
+          type="button"
+          onClick={() => onPageSelect(1)}
+          className="inline-flex shrink-0 items-center cursor-pointer gap-2 text-sm font-medium text-accent transition-opacity hover:opacity-70"
+        >
+          <ArrowUp size={16} strokeWidth={2} aria-hidden />
+          Volver arriba
+        </button>
       </footer>
     </article>
   );
