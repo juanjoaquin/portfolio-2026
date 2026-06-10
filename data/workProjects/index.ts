@@ -1,4 +1,5 @@
 import type { WorkProject, WorkProjectDetail } from "@/types/portfolio";
+import { actitud } from "./actitud";
 import { agusto } from "./agusto";
 import { dentoImagen } from "./dento-imagen";
 import { denunciasParakeet } from "./denuncias-parakeet";
@@ -15,6 +16,7 @@ export const workProjectDetails: WorkProjectDetail[] = [
   lpe,
   paginaInstitucional,
   remolquesColon,
+  actitud,
 ];
 
 /** Proyectos por hoja A4 en la sección del dossier. */

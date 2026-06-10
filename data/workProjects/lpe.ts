@@ -7,7 +7,7 @@ export const lpe: WorkProjectDetail = {
   role: "Desarrollador Frontend",
   period: "2025 — 2025",
   description:
-    "Plataforma de gestión de torneos esports para organizaciones, equipos y competiciones. Participé en el desarrollo frontend de creación de torneos, brackets y administración del ecosistema competitivo.",
+    "Plataforma de gestión de torneos esports para organizaciones, equipos y competiciones. Torneos con brackets dinámicos, eliminación directa y series BO1/BO3. Actualmente fuera de servicio.",
   tech: ["TypeScript", "Next.js", "Tailwind CSS"],
   image: "/lpe/1-home.png",
   documentLabel: "LPE · Torneos Esports",

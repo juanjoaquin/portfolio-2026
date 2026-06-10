@@ -7,7 +7,7 @@ export const denunciasParakeet: WorkProjectDetail = {
   role: "Desarrollador Frontend",
   period: "2025 — 2025",
   description:
-    "Plataforma de denuncias y seguimiento en producción para el grupo Parakeet. Participé en el desarrollo frontend del canal público de reportes y de la plataforma interna para la revisión y resolución de casos.",
+    "Plataforma de denuncias y seguimiento en producción para Parakeet. Canal público de reportes anónimos o identificados y plataforma interna para revisión y resolución de casos.",
   tech: ["TypeScript", "Next.js", "Tailwind CSS"],
   image: "/denuncias-parakeet/1-denuncias-home.png",
   documentLabel: "Parakeet · Plataforma de Denuncias",

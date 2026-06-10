@@ -7,7 +7,7 @@ export const paginaInstitucional: WorkProjectDetail = {
   role: "Desarrollador Frontend",
   period: "2026 — 2026",
   description:
-    "Sitio institucional multi-idioma en producción para Contarg. Participé en dos ciclos de desarrollo frontend, incluyendo la renovación actual del sitio corporativo.",
+    "Sitio institucional multi-idioma en producción para Contarg. Dos ciclos de desarrollo, con la renovación actual del sitio corporativo, servicios y portfolio de productos.",
   tech: ["Next.js", "Tailwind CSS"],
   image: "/contarg/1-home.png",
   documentLabel: "Contarg · Página Institucional",

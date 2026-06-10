@@ -7,7 +7,7 @@ export const proyectarg: WorkProjectDetail = {
   role: "Arquitecto UI Senior",
   period: "2025 — 2026",
   description:
-    "Plataforma multi-tenant de gestión de proyectos y tareas en producción. Participé en el desarrollo frontend y en su evolución hacia una solución escalable con roles diferenciados, planificación mediante tabla y Gantt, y seguimiento operativo de entregables.",
+    "Plataforma multi-tenant de gestión de proyectos y tareas en producción. Roles diferenciados, planificación con tabla y Gantt, y seguimiento operativo de entregables.",
   tech: ["TypeScript", "Next.js", "Tailwind CSS"],
   image: "/proyectarg/portada-proyecto.jpg",
   documentLabel: "Proyectarg · Gestión de Proyectos y tareas",

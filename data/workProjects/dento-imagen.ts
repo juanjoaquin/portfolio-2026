@@ -7,7 +7,7 @@ export const dentoImagen: WorkProjectDetail = {
   role: "Desarrollador Frontend",
   period: "2025 — 2026",
   description:
-    "Plataforma de gestión médica en producción. Participé en el desarrollo frontend a medida para un cliente clave y en su posterior evolución hacia un modelo SaaS multi-tenant escalable.",
+    "Plataforma de gestión odontológica en producción para centros de diagnóstico por imágenes. Evolucionó de un desarrollo a medida a un modelo SaaS multi-tenant con pacientes, coberturas y obras sociales.",
   tech: ["TypeScript", "Next.js", "Tailwind CSS"],
   image: "/salud/dento-home.png",
   documentLabel: "Dento Imagen · Gestión Médica",
