@@ -1,17 +1,36 @@
 "use client";
 
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
-import type { ProjectImage } from "@/types/portfolio";
+import { ProjectImage } from "@/components/dossier/project/ProjectImage";
+import { ImageCarouselSkeleton } from "@/components/dossier/project/ImageCarouselSkeleton";
+import {
+  GALLERY_IMAGE_SIZES,
+  PROJECT_IMAGE_ASPECT_CLASS,
+  preloadImages,
+} from "@/lib/projectImage";
+import type { ProjectImage as ProjectImageType } from "@/types/portfolio";
 
 interface ImageCarouselProps {
-  images: ProjectImage[];
+  images: ProjectImageType[];
 }
 
 export function ImageCarousel({ images }: ImageCarouselProps) {
+  const [imagesReady, setImagesReady] = useState(false);
   const [index, setIndex] = useState(0);
   const total = images.length;
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void preloadImages(images.map((image) => image.src)).then(() => {
+      if (!cancelled) setImagesReady(true);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [images]);
 
   const goTo = useCallback(
     (next: number) => {
@@ -35,26 +54,41 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
 
   if (total === 0) return null;
 
+  if (!imagesReady) {
+    return <ImageCarouselSkeleton />;
+  }
+
   const current = images[index];
+  const hasIntrinsicDimensions = images.every(
+    (image) => image.width != null && image.height != null,
+  );
 
   return (
     <div className="space-y-3">
       <div className="relative">
-        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg border border-doc-border bg-doc-surface">
+        <div
+          className={`relative w-full ${hasIntrinsicDimensions ? "" : PROJECT_IMAGE_ASPECT_CLASS}`}
+        >
           {images.map((image, i) => (
             <div
               key={image.src}
-              className={`absolute inset-0 transition-opacity duration-300 ${
-                i === index ? "opacity-100" : "opacity-0 pointer-events-none"
-              }`}
+              className={
+                hasIntrinsicDimensions
+                  ? `transition-opacity duration-300 ${i === index ? "opacity-100" : "pointer-events-none absolute inset-0 opacity-0"}`
+                  : `absolute inset-0 transition-opacity duration-300 ${
+                      i === index ? "opacity-100" : "pointer-events-none opacity-0"
+                    }`
+              }
             >
-              <Image
+              <ProjectImage
                 src={image.src}
                 alt={image.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 600px"
+                width={image.width}
+                height={image.height}
                 priority={i === 0}
+                className="rounded-lg border border-doc-border"
+                imageClassName={hasIntrinsicDimensions ? "" : "object-cover object-top"}
+                sizes={GALLERY_IMAGE_SIZES}
               />
             </div>
           ))}
@@ -84,7 +118,7 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
 
       <div className="flex flex-col items-center gap-2">
         {current.caption && (
-          <p className="font-sans text-xs text-doc-muted text-center">{current.caption}</p>
+          <p className="text-center font-sans text-xs text-doc-muted">{current.caption}</p>
         )}
         {total > 1 && (
           <div className="flex items-center gap-1.5" role="tablist" aria-label="Imágenes del carrusel">

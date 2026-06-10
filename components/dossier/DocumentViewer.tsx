@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
 import { Toolbar } from "@/components/dossier/Toolbar";
 import { Sidebar, type SidebarStyle } from "@/components/dossier/Sidebar";
 import { MobileNavDrawer } from "@/components/dossier/MobileNavDrawer";
-import { DESKTOP_QUERY, useMediaQuery } from "@/lib/useMediaQuery";
+import { useSidebarLayout } from "@/lib/useMediaQuery";
 import { useScrollPageNavigation } from "@/lib/useScrollPageNavigation";
 import { getPageDirection, type PageDirection } from "@/lib/pageTransition";
 import type { DossierPage } from "@/types/portfolio";
@@ -32,7 +32,7 @@ export function DocumentViewer({
 }: DocumentViewerProps) {
   const totalPages = pages.length;
   const safeInitialPage = Math.min(Math.max(1, initialPage), totalPages || 1);
-  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const { hasSidebar, isWideDesktop, isMobileNav } = useSidebarLayout();
   const contentScrollRef = useRef<HTMLDivElement>(null);
   const currentPageRef = useRef(safeInitialPage);
   const [currentPage, setCurrentPage] = useState(safeInitialPage);
@@ -49,13 +49,13 @@ export function DocumentViewer({
   }, []);
 
   useEffect(() => {
-    if (isDesktop) {
-      setSidebarOpen(true);
-      setMobileNavOpen(false);
-    } else {
+    if (!hasSidebar) {
       setSidebarOpen(false);
+      return;
     }
-  }, [isDesktop]);
+    setMobileNavOpen(false);
+    setSidebarOpen(isWideDesktop);
+  }, [hasSidebar, isWideDesktop]);
 
   const handleSidebarStyleChange = useCallback((style: SidebarStyle) => {
     setSidebarStyle(style);
@@ -94,7 +94,7 @@ export function DocumentViewer({
       <Toolbar
         documentName={documentName}
         documentLabel={documentLabel}
-        isMobile={!isDesktop}
+        isMobile={isMobileNav}
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen((o) => !o)}
         mobileNavOpen={mobileNavOpen}
@@ -115,17 +115,18 @@ export function DocumentViewer({
           currentPage={currentPage}
           pages={pages}
           style={sidebarStyle}
+          allowDossierStyle={isWideDesktop}
           onStyleChange={handleSidebarStyleChange}
           onPageSelect={goToPage}
         />
         <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background">
           <div
             ref={contentScrollRef}
-            className="flex min-h-0 min-w-0 flex-1 items-start justify-center overflow-x-hidden overflow-y-auto p-2 sm:p-4 md:p-8"
+            className="flex min-h-0 min-w-0 flex-1 items-start justify-center overflow-x-hidden overflow-y-auto p-2 sm:p-4 md:p-4 lg:p-8"
           >
             <div
               key={currentPage}
-              className={`w-full min-w-0 max-w-full md:max-w-[794px] ${
+              className={`w-full min-w-0 max-w-full lg:max-w-[794px] ${
                 pageDirection === "forward" ? "page-enter-forward" : "page-enter-backward"
               }`}
             >

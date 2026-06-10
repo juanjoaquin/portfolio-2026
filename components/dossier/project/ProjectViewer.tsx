@@ -7,7 +7,7 @@ import { Toolbar } from "@/components/dossier/Toolbar";
 import { Sidebar, type SidebarStyle } from "@/components/dossier/Sidebar";
 import { MobileNavDrawer } from "@/components/dossier/MobileNavDrawer";
 import { ProjectDetailPage } from "@/components/dossier/project/ProjectDetailPage";
-import { DESKTOP_QUERY, useMediaQuery } from "@/lib/useMediaQuery";
+import { useSidebarLayout } from "@/lib/useMediaQuery";
 import type { WorkProjectDetail } from "@/types/portfolio";
 import { DOSSIER_PAGES } from "@/types/portfolio";
 
@@ -22,7 +22,7 @@ interface ProjectViewerProps {
 
 function ProjectViewerContent({ project }: ProjectViewerProps) {
   const router = useRouter();
-  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  const { hasSidebar, isWideDesktop, isMobileNav } = useSidebarLayout();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [sidebarStyle, setSidebarStyle] = useState<SidebarStyle>("dossier");
@@ -35,13 +35,13 @@ function ProjectViewerContent({ project }: ProjectViewerProps) {
   }, []);
 
   useEffect(() => {
-    if (isDesktop) {
-      setSidebarOpen(true);
-      setMobileNavOpen(false);
-    } else {
+    if (!hasSidebar) {
       setSidebarOpen(false);
+      return;
     }
-  }, [isDesktop]);
+    setMobileNavOpen(false);
+    setSidebarOpen(isWideDesktop);
+  }, [hasSidebar, isWideDesktop]);
 
   const handleSidebarStyleChange = useCallback((style: SidebarStyle) => {
     setSidebarStyle(style);
@@ -60,7 +60,7 @@ function ProjectViewerContent({ project }: ProjectViewerProps) {
       <Toolbar
         documentName={project.name}
         documentLabel={project.documentLabel}
-        isMobile={!isDesktop}
+        isMobile={isMobileNav}
         sidebarOpen={sidebarOpen}
         onToggleSidebar={() => setSidebarOpen((o) => !o)}
         mobileNavOpen={mobileNavOpen}
@@ -81,12 +81,13 @@ function ProjectViewerContent({ project }: ProjectViewerProps) {
           currentPage={PROJECT_CONTEXT_PAGE}
           pages={DOSSIER_PAGES}
           style={sidebarStyle}
+          allowDossierStyle={isWideDesktop}
           onStyleChange={handleSidebarStyleChange}
           onPageSelect={navigateToDossierPage}
         />
         <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background">
-          <div className="flex min-h-0 min-w-0 flex-1 items-start justify-center overflow-x-hidden overflow-y-auto p-2 sm:p-4 md:p-8">
-            <div className="w-full min-w-0 max-w-full md:max-w-[794px] page-enter-forward">
+          <div className="flex min-h-0 min-w-0 flex-1 items-start justify-center overflow-x-hidden overflow-y-auto p-2 sm:p-4 md:p-4 lg:p-8">
+            <div className="w-full min-w-0 max-w-full lg:max-w-[794px] page-enter-forward">
               <ProjectDetailPage project={project} />
             </div>
           </div>

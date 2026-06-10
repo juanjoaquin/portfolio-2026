@@ -99,8 +99,13 @@ body {
 
 @media (min-width: 768px) {
   .dossier-page {
-    width: var(--a4-width);
     min-height: var(--a4-height);
+  }
+}
+
+@media (min-width: 1280px) {
+  .dossier-page {
+    width: var(--a4-width);
   }
 }
 

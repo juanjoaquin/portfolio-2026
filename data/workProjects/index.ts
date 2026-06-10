@@ -1,9 +1,11 @@
 import type { WorkProject, WorkProjectDetail } from "@/types/portfolio";
 import { analyticsDashboard } from "./analytics-dashboard";
+import { dentoImagen } from "./dento-imagen";
 import { designSystemKit } from "./design-system-kit";
 import { nextjsMigration } from "./nextjs-migration";
 
 export const workProjectDetails: WorkProjectDetail[] = [
+  dentoImagen,
   designSystemKit,
   analyticsDashboard,
   nextjsMigration,

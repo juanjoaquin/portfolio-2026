@@ -50,6 +50,20 @@ function KpiBar({ label, value, unit }: { label: string; value: number; unit: st
   );
 }
 
+function parseBold(text: string) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return (
+        <strong key={i} className="font-semibold text-doc-text">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+}
+
 function TechPills({ items }: { items: string[] }) {
   return (
     <ul className="flex flex-wrap gap-2 font-sans">
@@ -75,12 +89,8 @@ function BlockRenderer({ block, project }: { block: WorkProjectBlock; project: W
           </p>
           <h1 className="text-2xl font-bold md:text-3xl">{project.name}</h1>
           {block.subtitle && (
-            <p className="mt-2 text-doc-body leading-relaxed">{block.subtitle}</p>
+            <p className="mt-2 text-doc-body leading-relaxed">{parseBold(block.subtitle)}</p>
           )}
-          <p className="mt-3 text-accent font-sans text-sm font-medium">{project.role}</p>
-          <div className="mt-4">
-            <TechPills items={project.tech} />
-          </div>
         </header>
       );
 
@@ -94,7 +104,7 @@ function BlockRenderer({ block, project }: { block: WorkProjectBlock; project: W
           )}
           {block.paragraphs.map((paragraph, i) => (
             <p key={i} className="text-doc-body leading-relaxed">
-              {paragraph}
+              {parseBold(paragraph)}
             </p>
           ))}
         </section>
@@ -131,7 +141,7 @@ function BlockRenderer({ block, project }: { block: WorkProjectBlock; project: W
           <ul className="space-y-2 border-l-2 border-accent pl-6">
             {block.items.map((item, i) => (
               <li key={i} className="text-doc-body leading-relaxed">
-                {item}
+                {parseBold(item)}
               </li>
             ))}
           </ul>
@@ -150,7 +160,7 @@ export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
   return (
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-8 flex items-center gap-3 border-b border-doc-border pb-4">
-        <Link href="/?p=4" className={backLinkClass}>
+        <Link href="/?p=2" className={backLinkClass}>
           <ChevronLeft className="size-4 sm:size-[18px]" strokeWidth={2} aria-hidden />
           <span>Proyectos</span>
         </Link>

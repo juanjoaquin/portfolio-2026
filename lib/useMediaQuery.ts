@@ -20,4 +20,19 @@ export function useMediaQuery(query: string): boolean {
   return matches;
 }
 
-export const DESKTOP_QUERY = "(min-width: 768px)";
+/** Sidebar fijo visible (lg+: 1024px) */
+export const SIDEBAR_LAYOUT_QUERY = "(min-width: 1024px)";
+
+/** Sidebar completo con miniaturas abierto por defecto (xl+: 1280px) */
+export const WIDE_DESKTOP_QUERY = "(min-width: 1280px)";
+
+export function useSidebarLayout() {
+  const hasSidebar = useMediaQuery(SIDEBAR_LAYOUT_QUERY);
+  const isWideDesktop = useMediaQuery(WIDE_DESKTOP_QUERY);
+
+  return {
+    hasSidebar,
+    isWideDesktop,
+    isMobileNav: !hasSidebar,
+  };
+}

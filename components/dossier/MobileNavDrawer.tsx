@@ -80,7 +80,7 @@ export function MobileNavDrawer({
 
   return (
     <div
-      className={`fixed inset-0 z-50 md:hidden ${visible ? "" : "pointer-events-none"}`}
+      className={`fixed inset-0 z-50 lg:hidden ${visible ? "" : "pointer-events-none"}`}
       role="presentation"
     >
       <button
