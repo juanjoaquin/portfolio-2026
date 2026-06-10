@@ -62,10 +62,13 @@ export function ImageCarousel({ images }: ImageCarouselProps) {
   const hasIntrinsicDimensions = images.every(
     (image) => image.width != null && image.height != null,
   );
+  const isPortrait = (image: ProjectImageType) =>
+    image.width != null && image.height != null && image.width < image.height;
+  const isCurrentPortrait = isPortrait(current);
 
   return (
     <div className="space-y-3">
-      <div className="relative">
+      <div className={`relative ${isCurrentPortrait ? "mx-auto max-w-[380px]" : "w-full"}`}>
         <div
           className={`relative w-full ${hasIntrinsicDimensions ? "" : PROJECT_IMAGE_ASPECT_CLASS}`}
         >

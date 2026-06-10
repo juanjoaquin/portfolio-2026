@@ -1,5 +1,5 @@
 import type { WorkProject, WorkProjectDetail } from "@/types/portfolio";
-import { analyticsDashboard } from "./analytics-dashboard";
+import { agusto } from "./agusto";
 import { dentoImagen } from "./dento-imagen";
 import { denunciasParakeet } from "./denuncias-parakeet";
 import { proyectarg } from "./proyectarg";
@@ -9,7 +9,7 @@ export const workProjectDetails: WorkProjectDetail[] = [
   dentoImagen,
   proyectarg,
   denunciasParakeet,
-  analyticsDashboard,
+  agusto,
   nextjsMigration,
 ];
 
