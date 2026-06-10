@@ -220,12 +220,13 @@ export function PageThumbnail({ pageId }: PageThumbnailProps) {
       case 1:
         return <CoverThumbnail />;
       case 2:
-        return <ProjectsThumbnail />;
       case 3:
-        return <ExperienceThumbnail />;
+        return <ProjectsThumbnail />;
       case 4:
-        return <SkillsThumbnail />;
+        return <ExperienceThumbnail />;
       case 5:
+        return <SkillsThumbnail />;
+      case 6:
         return <ContactThumbnail />;
       default:
         return <FallbackThumbnail pageId={pageId} />;

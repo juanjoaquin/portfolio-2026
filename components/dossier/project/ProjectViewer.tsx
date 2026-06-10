@@ -8,13 +8,11 @@ import { Sidebar, type SidebarStyle } from "@/components/dossier/Sidebar";
 import { MobileNavDrawer } from "@/components/dossier/MobileNavDrawer";
 import { ProjectDetailPage } from "@/components/dossier/project/ProjectDetailPage";
 import { useSidebarLayout } from "@/lib/useMediaQuery";
+import { getWorkProjectsListPage } from "@/data/workProjects";
 import type { WorkProjectDetail } from "@/types/portfolio";
 import { DOSSIER_PAGES } from "@/types/portfolio";
 
 const SIDEBAR_STYLE_KEY = "dossier-sidebar-style";
-
-/** Página activa en el sidebar mientras se visualiza un proyecto */
-const PROJECT_CONTEXT_PAGE = 2;
 
 interface ProjectViewerProps {
   project: WorkProjectDetail;
@@ -22,6 +20,7 @@ interface ProjectViewerProps {
 
 function ProjectViewerContent({ project }: ProjectViewerProps) {
   const router = useRouter();
+  const projectContextPage = getWorkProjectsListPage(project.slug);
   const { hasSidebar, isWideDesktop, isMobileNav } = useSidebarLayout();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -70,7 +69,7 @@ function ProjectViewerContent({ project }: ProjectViewerProps) {
       />
       <MobileNavDrawer
         open={mobileNavOpen}
-        currentPage={PROJECT_CONTEXT_PAGE}
+        currentPage={projectContextPage}
         pages={DOSSIER_PAGES}
         onClose={() => setMobileNavOpen(false)}
         onPageSelect={navigateToDossierPage}
@@ -78,7 +77,7 @@ function ProjectViewerContent({ project }: ProjectViewerProps) {
       <div className="flex min-h-0 min-w-0 flex-1 overflow-hidden">
         <Sidebar
           open={sidebarOpen}
-          currentPage={PROJECT_CONTEXT_PAGE}
+          currentPage={projectContextPage}
           pages={DOSSIER_PAGES}
           style={sidebarStyle}
           allowDossierStyle={isWideDesktop}

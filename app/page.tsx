@@ -1,5 +1,5 @@
 import { profile } from "@/data/profile";
-import { workProjects } from "@/data/workProjects";
+import { workProjectsContinued, workProjectsPrimary } from "@/data/workProjects";
 import { skills } from "@/data/skills";
 import { experience } from "@/data/experience";
 import { DossierViewer } from "@/components/dossier/DossierViewer";
@@ -18,7 +18,8 @@ export default async function Home({ searchParams }: HomeProps) {
     <div className="h-full min-w-0 overflow-x-hidden">
       <DossierViewer
         profile={profile}
-        workProjects={workProjects}
+        workProjectsPrimary={workProjectsPrimary}
+        workProjectsContinued={workProjectsContinued}
         skills={skills}
         experience={experience}
         initialPage={initialPage}

@@ -10,9 +10,10 @@ import type { WorkProject } from "@/types/portfolio";
 
 interface ProjectsGridProps {
   workProjects: WorkProject[];
+  startIndex?: number;
 }
 
-export function ProjectsGrid({ workProjects }: ProjectsGridProps) {
+export function ProjectsGrid({ workProjects, startIndex = 0 }: ProjectsGridProps) {
   const [imagesReady, setImagesReady] = useState(false);
 
   useEffect(() => {
@@ -52,7 +53,7 @@ export function ProjectsGrid({ workProjects }: ProjectsGridProps) {
               className="pointer-events-none absolute right-3 top-2 font-doc text-5xl font-bold leading-none text-doc-border/80 transition-colors select-none group-hover:text-accent/40 md:right-4 md:text-6xl"
               aria-hidden
             >
-              {String(index + 1).padStart(2, "0")}
+              {String(startIndex + index + 1).padStart(2, "0")}
             </span>
 
             <p className="relative z-10 font-sans text-[10px] uppercase tracking-wide text-doc-muted">

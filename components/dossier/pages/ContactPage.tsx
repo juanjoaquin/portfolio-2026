@@ -52,7 +52,7 @@ export function ContactPage({ profile }: ContactPageProps) {
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-8 border-b border-doc-border pb-4">
         <p className="text-xs uppercase tracking-[0.2em] text-doc-muted font-sans mb-1">
-          Sección 05
+          Sección 06
         </p>
         <h2 className="text-2xl font-bold md:text-3xl">Contacto</h2>
       </header>

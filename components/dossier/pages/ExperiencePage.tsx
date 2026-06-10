@@ -52,7 +52,7 @@ export function ExperiencePage({ experience }: ExperiencePageProps) {
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-8 border-b border-doc-border pb-4">
         <p className="text-xs uppercase tracking-[0.2em] text-doc-muted font-sans mb-1">
-          Sección 03
+          Sección 04
         </p>
         <h2 className="text-2xl font-bold md:text-3xl">Experiencia & Casos de Éxito</h2>
       </header>

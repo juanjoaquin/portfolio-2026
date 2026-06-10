@@ -12,7 +12,8 @@ import { DOSSIER_PAGES } from "@/types/portfolio";
 
 interface DossierViewerProps {
   profile: Profile;
-  workProjects: WorkProject[];
+  workProjectsPrimary: WorkProject[];
+  workProjectsContinued: WorkProject[];
   skills: Skill[];
   experience: Experience[];
   initialPage?: number;
@@ -20,7 +21,8 @@ interface DossierViewerProps {
 
 function DossierContent({
   profile,
-  workProjects,
+  workProjectsPrimary,
+  workProjectsContinued,
   skills,
   experience,
   initialPage = 1,
@@ -30,12 +32,14 @@ function DossierContent({
       case 1:
         return <CoverPage profile={profile} onPageSelect={goToPage} />;
       case 2:
-        return <ProjectsPage workProjects={workProjects} />;
+        return <ProjectsPage workProjects={workProjectsPrimary} variant="primary" />;
       case 3:
-        return <ExperiencePage experience={experience} />;
+        return <ProjectsPage workProjects={workProjectsContinued} variant="continued" />;
       case 4:
-        return <SkillsPage skills={skills} />;
+        return <ExperiencePage experience={experience} />;
       case 5:
+        return <SkillsPage skills={skills} />;
+      case 6:
         return <ContactPage profile={profile} />;
       default:
         return null;

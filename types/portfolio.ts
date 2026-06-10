@@ -92,9 +92,10 @@ export interface DossierPage {
 export const DOSSIER_PAGES: DossierPage[] = [
   { id: 1, title: "Sobre mí", bookmark: "About" },
   { id: 2, title: "Proyectos", bookmark: "Projects" },
-  { id: 3, title: "Experiencia", bookmark: "Experience" },
-  { id: 4, title: "Habilidades", bookmark: "Skills" },
-  { id: 5, title: "Contacto", bookmark: "Contact" },
+  { id: 3, title: "Proyectos II", bookmark: "Projects+" },
+  { id: 4, title: "Experiencia", bookmark: "Experience" },
+  { id: 5, title: "Habilidades", bookmark: "Skills" },
+  { id: 6, title: "Contacto", bookmark: "Contact" },
 ];
 
 export const TOTAL_PAGES = DOSSIER_PAGES.length;

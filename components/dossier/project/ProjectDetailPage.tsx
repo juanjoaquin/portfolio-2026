@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { ImageCarousel } from "@/components/dossier/project/ImageCarousel";
+import { getWorkProjectsListPage } from "@/data/workProjects";
 import type { WorkProjectDetail, WorkProjectBlock } from "@/types/portfolio";
 
 interface ProjectDetailPageProps {
@@ -157,10 +158,12 @@ const backLinkClass =
   "inline-flex min-h-8 items-center justify-center gap-1 rounded-md border border-doc-border/80 bg-doc-bg px-2 py-1 font-sans text-xs font-medium text-doc-body shadow-sm transition-all hover:border-accent/40 hover:bg-accent-muted hover:text-accent active:scale-[0.98] sm:min-h-11 sm:gap-1.5 sm:rounded-lg sm:px-4 sm:py-2 sm:text-sm";
 
 export function ProjectDetailPage({ project }: ProjectDetailPageProps) {
+  const projectsPage = getWorkProjectsListPage(project.slug);
+
   return (
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-8 flex items-center gap-3 border-b border-doc-border pb-4">
-        <Link href="/?p=2" className={backLinkClass}>
+        <Link href={`/?p=${projectsPage}`} className={backLinkClass}>
           <ChevronLeft className="size-4 sm:size-[18px]" strokeWidth={2} aria-hidden />
           <span>Proyectos</span>
         </Link>

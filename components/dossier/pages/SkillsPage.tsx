@@ -26,7 +26,7 @@ export function SkillsPage({ skills }: SkillsPageProps) {
     <article className="dossier-page font-doc flex flex-col p-6 text-doc-text md:p-12">
       <header className="mb-6 border-b border-doc-border pb-4">
         <p className="text-xs uppercase tracking-[0.2em] text-doc-muted font-sans mb-1">
-          Sección 04
+          Sección 05
         </p>
         <h2 className="text-2xl font-bold md:text-3xl">Estructura Tecnológica</h2>
       </header>
