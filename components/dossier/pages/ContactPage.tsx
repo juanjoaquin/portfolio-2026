@@ -127,7 +127,7 @@ export function ContactPage({ profile, onPageSelect }: ContactPageProps) {
             iconClassName="text-emerald-600"
             icon={
               <span className="flex h-4 w-4 items-center justify-center" aria-hidden>
-                <span className="h-2 w-2 rounded-full bg-emerald-600" />
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
               </span>
             }
           >
