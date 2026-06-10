@@ -2,7 +2,7 @@ import type { WorkProjectDetail } from "@/types/portfolio";
 
 export const dentoImagen: WorkProjectDetail = {
   slug: "dento-imagen",
-  name: "Software de Gestión Médica",
+  name: "Plataforma de Gestión Médica",
   company: "Dento Imagen",
   role: "Desarrollador Frontend",
   period: "2025 — 2026",
