@@ -70,32 +70,39 @@ function ExperienceThumbnail() {
       <PageHeader />
 
       <div className="flex flex-1 gap-1.5">
-        <div className="w-0.5 shrink-0 rounded-full bg-accent/60" aria-hidden />
+        <div className="relative w-0.5 shrink-0 rounded-full bg-doc-border" aria-hidden>
+          <div className="absolute left-1/2 top-1 h-1 w-1 -translate-x-1/2 rounded-full bg-accent" />
+        </div>
         <div className="flex min-w-0 flex-1 flex-col gap-2">
-          <div>
-            <ThumbnailBlock className="h-1.5 w-[72%] bg-doc-text/25" />
-            <ThumbnailBlock className="mt-0.5 h-1 w-[48%] bg-accent/45" />
-            <div className="mt-1 space-y-[2px]">
-              <ThumbnailBlock className="h-[3px] w-full" />
-              <ThumbnailBlock className="h-[3px] w-[88%]" />
-              <ThumbnailBlock className="h-[3px] w-[76%]" />
-            </div>
+          <div className="flex flex-wrap items-center gap-1">
+            <div className="h-2 rounded-full bg-doc-text/80 px-1.5" style={{ width: "28%" }} />
+            <ThumbnailBlock className="h-1.5 w-[38%] bg-doc-text/25" />
           </div>
-          <div className="grid grid-cols-3 gap-1">
-            {[72, 48, 85].map((width) => (
-              <div key={width} className="space-y-0.5">
-                <ThumbnailBlock className="h-[2px] w-full bg-doc-muted/25" />
-                <div className="h-1 overflow-hidden rounded-full bg-doc-surface">
-                  <div className="h-full rounded-full bg-accent/55" style={{ width: `${width}%` }} />
-                </div>
-              </div>
+          <div className="space-y-[2px]">
+            <ThumbnailBlock className="h-[3px] w-full" />
+            <ThumbnailBlock className="h-[3px] w-[88%]" />
+          </div>
+          <div className="space-y-[2px] pl-1">
+            <ThumbnailBlock className="h-[2px] w-[52%] bg-doc-muted/30" />
+            <ThumbnailBlock className="h-[2px] w-full" />
+            <ThumbnailBlock className="h-[2px] w-[84%]" />
+          </div>
+          <div className="flex flex-wrap gap-0.5">
+            {[22, 18, 20].map((width) => (
+              <div
+                key={width}
+                className="h-1.5 rounded-sm border border-doc-border/50 bg-doc-surface"
+                style={{ width: `${width}%` }}
+              />
             ))}
           </div>
         </div>
       </div>
 
       <div className="flex gap-1.5 pl-2">
-        <div className="w-0.5 shrink-0 rounded-full bg-accent/30" aria-hidden />
+        <div className="relative w-0.5 shrink-0 rounded-full bg-doc-border/60" aria-hidden>
+          <div className="absolute left-1/2 top-0.5 h-1 w-1 -translate-x-1/2 rounded-full bg-accent/70" />
+        </div>
         <ThumbnailBlock className="h-1.5 w-[58%] bg-doc-text/15" />
       </div>
     </div>

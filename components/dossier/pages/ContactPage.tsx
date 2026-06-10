@@ -136,7 +136,7 @@ export function ContactPage({ profile }: ContactPageProps) {
       </div>
 
       <footer className="mt-10 border-t border-doc-border pt-6 text-sm text-doc-muted font-sans">
-        <p>Fin del dossier — {profile.name}</p>
+        <p>Fin del documento — {profile.name}</p>
       </footer>
     </article>
   );

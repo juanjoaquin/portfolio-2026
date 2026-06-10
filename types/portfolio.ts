@@ -46,8 +46,11 @@ export interface Experience {
   company: string;
   role: string;
   period: string;
+  location?: string;
+  url?: string;
   description: string;
-  kpis: ExperienceKpi[];
+  achievements: string[];
+  tech: string[];
 }
 
 export interface WorkProject {
