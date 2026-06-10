@@ -137,48 +137,56 @@ function ProjectsThumbnail() {
   );
 }
 
-function SkillsThumbnail() {
-  const levels = [82, 65, 90, 48, 76, 58, 70, 62];
+function SkillGroupThumbnail({
+  labelWidth,
+  skillWidths,
+  compact = false,
+}: {
+  labelWidth: string;
+  skillWidths: string[];
+  compact?: boolean;
+}) {
+  return (
+    <div className={compact ? "space-y-1" : "space-y-1.5"}>
+      <div className="flex items-center gap-0.5">
+        <div className="size-1 shrink-0 rounded-full bg-accent" aria-hidden />
+        <ThumbnailBlock className={`h-[2px] ${labelWidth} bg-doc-muted/35`} />
+      </div>
+      <div className="rounded border border-doc-border/40 bg-doc-bg p-1.5">
+        {skillWidths.map((width, i) => (
+          <div
+            key={width}
+            className={`space-y-0.5 ${i < skillWidths.length - 1 ? "mb-1.5 border-b border-dashed border-doc-border/50 pb-1.5" : ""}`}
+          >
+            <ThumbnailBlock className={`h-1 ${width} bg-doc-text/20`} />
+            <div className="h-0.5 overflow-hidden rounded-sm bg-doc-surface">
+              <div className="h-full w-full rounded-sm bg-accent/55" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
+function SkillsThumbnail() {
   return (
     <div className="flex h-full w-full flex-col gap-2 p-2.5 pt-3">
       <PageHeader />
 
-      <div className="flex gap-1">
-        <div className="h-2 flex-1 rounded-sm bg-accent/45" />
-        {[0, 1, 2].map((i) => (
-          <div key={i} className="h-2 flex-1 rounded-sm border border-doc-border/40 bg-doc-surface" />
-        ))}
+      <div className="space-y-1">
+        <ThumbnailBlock className="h-1 w-[48%] bg-accent/45" />
+        <ThumbnailBlock className="h-[3px] w-full" />
+        <ThumbnailBlock className="h-[3px] w-[78%]" />
       </div>
 
-      <div className="grid grid-cols-4 gap-1">
-        {levels.map((level, i) => (
-          <div key={i} className="flex flex-col items-center gap-0.5">
-            <div
-              className="size-3.5 rounded-full border border-doc-border/40"
-              style={{
-                background: `conic-gradient(color-mix(in srgb, var(--accent) 55%, transparent) ${level}%, var(--doc-surface) 0)`,
-              }}
-            />
-            <ThumbnailBlock className="h-[2px] w-full bg-doc-muted/25" />
-          </div>
-        ))}
-      </div>
+      <SkillGroupThumbnail labelWidth="w-[26%]" skillWidths={["w-[55%]", "w-[48%]", "w-[52%]"]} />
 
-      <div className="mt-auto space-y-1">
-        <ThumbnailBlock className="h-1 w-[42%] bg-accent/40" />
-        {[88, 72, 95].map((width) => (
-          <div key={width} className="space-y-0.5">
-            <div className="flex justify-between gap-1">
-              <ThumbnailBlock className="h-[2px] w-[45%] bg-doc-muted/30" />
-              <ThumbnailBlock className="h-[2px] w-[18%] bg-doc-muted/20" />
-            </div>
-            <div className="h-1 overflow-hidden rounded-full bg-doc-surface">
-              <div className="h-full rounded-full bg-accent/50" style={{ width: `${width}%` }} />
-            </div>
-          </div>
-        ))}
-      </div>
+      <SkillGroupThumbnail
+        compact
+        labelWidth="w-[22%]"
+        skillWidths={["w-[42%]", "w-[38%]"]}
+      />
     </div>
   );
 }
