@@ -11,6 +11,7 @@ export const dentoImagen: WorkProjectDetail = {
   tech: ["TypeScript", "Next.js", "Tailwind CSS"],
   image: "/salud/dento-home.png",
   documentLabel: "Dento Imagen · Gestión Médica",
+  url: "https://www.dentoimagen.com.ar/",
   blocks: [
     {
       type: "hero",
