@@ -20,7 +20,7 @@ function parseBold(text: string) {
 
 function CompanyBadge({ company, url }: { company: string; url?: string }) {
   const className =
-    "inline-block rounded-full bg-doc-text px-3 py-0.5 text-[10px] font-sans font-semibold uppercase tracking-wider text-doc-bg transition-opacity hover:opacity-80";
+    "inline-block rounded-sm bg-doc-text px-3 py-0.5 text-[10px] font-sans font-semibold uppercase tracking-wider text-doc-bg transition-opacity hover:opacity-80";
 
   if (url) {
     return (
@@ -45,7 +45,7 @@ function TechPills({ items }: { items: string[] }) {
       {items.map((tech) => (
         <li
           key={tech}
-          className="rounded-md border border-doc-border bg-doc-surface px-2.5 py-1 text-[10px] font-medium text-doc-subtle"
+          className="rounded-sm border border-doc-border bg-doc-surface px-2.5 py-1 text-[10px] font-medium text-doc-subtle"
         >
           {tech}
         </li>
@@ -69,7 +69,7 @@ function ExperienceEntry({ exp, isLast }: { exp: Experience; isLast: boolean }) 
           <CompanyBadge company={exp.company} url={exp.url} />
           <h3 className="text-lg font-bold md:text-xl">{exp.role}</h3>
         </div>
-        <p className="shrink-0 rounded-md border border-doc-border px-2.5 py-1 text-[10px] font-sans text-doc-muted">
+        <p className="shrink-0 rounded-sm border border-doc-border px-2.5 py-1 text-[10px] font-sans text-doc-muted">
           {meta}
         </p>
       </div>
@@ -102,7 +102,7 @@ export function ExperiencePage({ experience }: ExperiencePageProps) {
         <p className="mb-1 font-sans text-xs uppercase tracking-[0.2em] text-doc-muted">
           Sección 04 / Corporate Exp
         </p>
-        <h2 className="text-2xl font-bold md:text-3xl">Trayectoria Curricular</h2>
+        <h2 className="text-2xl font-bold md:text-3xl">Experiencia Profesional</h2>
       </header>
 
       <div className="relative border-l border-doc-border pl-0">

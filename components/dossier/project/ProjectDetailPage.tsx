@@ -71,7 +71,7 @@ function TechPills({ items }: { items: string[] }) {
       {items.map((tech) => (
         <li
           key={tech}
-          className="rounded-full border border-doc-border bg-doc-surface px-3 py-1 text-[10px] font-medium uppercase tracking-wide text-doc-subtle"
+          className="rounded-sm border border-doc-border bg-doc-surface px-3 py-1 text-[10px] font-medium uppercase tracking-wide text-doc-subtle"
         >
           {tech}
         </li>

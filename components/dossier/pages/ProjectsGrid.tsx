@@ -72,13 +72,13 @@ export function ProjectsGrid({ workProjects, startIndex = 0 }: ProjectsGridProps
               {project.tech.slice(0, 4).map((tech) => (
                 <li
                   key={tech}
-                  className="rounded-full border border-doc-border bg-doc-surface px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-doc-subtle"
+                  className="rounded-sm border border-doc-border bg-doc-surface px-2 py-0.5 text-[9px] font-medium uppercase tracking-wide text-doc-subtle"
                 >
                   {tech}
                 </li>
               ))}
               {project.tech.length > 4 && (
-                <li className="rounded-full border border-doc-border bg-doc-surface px-2 py-0.5 text-[9px] font-medium text-doc-muted">
+                <li className="rounded-sm border border-doc-border bg-doc-surface px-2 py-0.5 text-[9px] font-medium text-doc-muted">
                   +{project.tech.length - 4}
                 </li>
               )}

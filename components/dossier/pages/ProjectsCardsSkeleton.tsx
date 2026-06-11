@@ -26,8 +26,8 @@ export function ProjectsCardsSkeleton({ count }: ProjectsCardsSkeletonProps) {
               <div className="h-3 w-5/6 animate-pulse rounded bg-doc-border/50" />
             </div>
             <div className="mt-auto flex gap-1.5">
-              <div className="h-5 w-14 animate-pulse rounded-full bg-doc-border/50" />
-              <div className="h-5 w-16 animate-pulse rounded-full bg-doc-border/50" />
+              <div className="h-5 w-14 animate-pulse rounded-sm bg-doc-border/50" />
+              <div className="h-5 w-16 animate-pulse rounded-sm bg-doc-border/50" />
             </div>
           </div>
         </div>
