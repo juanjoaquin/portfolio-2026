@@ -17,6 +17,7 @@ export interface Profile {
   executiveSummary: string[];
   techStack: string;
   workMode: string;
+  contactNote?: string;
 }
 
 export interface Project {
@@ -34,6 +35,7 @@ export interface Skill {
   category: SkillCategory;
   level: number;
   instrumentation: string;
+  authorNote?: string;
 }
 
 export interface ExperienceKpi {

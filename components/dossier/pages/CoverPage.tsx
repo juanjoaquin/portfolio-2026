@@ -1,6 +1,7 @@
 "use client";
 
 import { Laptop, MapPin, Zap } from "lucide-react";
+import { PdfAnnotation } from "@/components/dossier/annotations";
 import { renderBoldText } from "@/lib/renderBoldText";
 import { DOSSIER_PAGES, type Profile } from "@/types/portfolio";
 
@@ -40,10 +41,18 @@ export function CoverPage({ profile, onPageSelect }: CoverPageProps) {
           ))}
         </div>
 
-        <ul className="mt-6 flex flex-wrap gap-2 font-sans">
-          <li className="inline-flex items-center gap-1.5 rounded-full border border-doc-border bg-doc-surface px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-doc-subtle">
-            <MapPin className="size-3 shrink-0 text-doc-muted" strokeWidth={2} aria-hidden />
-            {profile.location}
+        <ul className="mt-6 flex flex-wrap gap-2 overflow-visible font-sans">
+          <li className="mb-1">
+            <PdfAnnotation
+              note="Con posibilidad de relocalización"
+              triggerLabel="Ver nota sobre relocalización"
+              side="corner"
+            >
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-doc-border bg-doc-surface px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-doc-subtle">
+                <MapPin className="size-3 shrink-0 text-doc-muted" strokeWidth={2} aria-hidden />
+                {profile.location}
+              </span>
+            </PdfAnnotation>
           </li>
           <li className="inline-flex items-center gap-1.5 rounded-full border border-doc-border bg-doc-surface px-3 py-1.5 text-[10px] font-medium uppercase tracking-wide text-doc-subtle">
             <Laptop className="size-3 shrink-0 text-doc-muted" strokeWidth={2} aria-hidden />

@@ -1,5 +1,6 @@
 import type { WorkProject } from "@/types/portfolio";
 import { PROJECTS_PER_PAGE } from "@/data/workProjects";
+import { PdfAnnotation } from "@/components/dossier/annotations";
 import { ProjectsGrid } from "./ProjectsGrid";
 
 interface ProjectsPageProps {
@@ -16,12 +17,7 @@ export function ProjectsPage({ workProjects, variant = "primary" }: ProjectsPage
         <p className="text-xs uppercase tracking-[0.2em] text-doc-muted font-sans mb-1">
           {isContinued ? "Sección 02 · continuación" : "Sección 02"}
         </p>
-        <h2 className="text-2xl font-bold md:text-3xl">
-          {isContinued ? "Proyectos Profesionales" : "Proyectos Profesionales"}
-        </h2>
-        {isContinued && (
-          <p className="mt-1 font-sans text-sm text-doc-muted">Continuación</p>
-        )}
+        <h2 className="text-2xl font-bold md:text-3xl">Proyectos Profesionales</h2>
       </header>
 
       {!isContinued && (
@@ -39,10 +35,18 @@ export function ProjectsPage({ workProjects, variant = "primary" }: ProjectsPage
       )}
 
       {isContinued && (
-        <section className="mb-8">
+        <section className="mb-8 flex items-center justify-between gap-4">
           <p className="text-doc-body leading-relaxed text-sm md:text-base">
-            Continuación de la selección de proyectos profesionales.
+            Continuación de proyectos productivos.
           </p>
+          <PdfAnnotation
+            note="Segunda sección de aplicaciones y productos en entornos productivos."
+            triggerLabel="Ver nota sobre la continuación de proyectos"
+            side="left"
+            className="shrink-0"
+          >
+            <span className="inline-block size-4" aria-hidden />
+          </PdfAnnotation>
         </section>
       )}
 

@@ -122,6 +122,7 @@ export function DocumentViewer({
         <main className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-background">
           <div
             ref={contentScrollRef}
+            data-dossier-scroll
             className="flex min-h-0 min-w-0 flex-1 items-start justify-center overflow-x-hidden overflow-y-auto p-2 sm:p-4 md:p-4 lg:p-8"
           >
             <div

@@ -1,3 +1,4 @@
+import { PdfAnnotation } from "@/components/dossier/annotations";
 import type { Skill, SkillCategory } from "@/types/portfolio";
 
 interface SkillsPageProps {
@@ -18,13 +19,22 @@ function SkillEntry({ skill, isLast }: { skill: Skill; isLast: boolean }) {
     <section
       className={`space-y-3 ${isLast ? "" : "mb-6 border-b border-dashed border-doc-border pb-6"}`}
     >
-      <h4 className="font-sans text-base font-bold text-doc-text md:text-lg">{skill.name}</h4>
+      <div className="flex items-center justify-between gap-4">
+        <h4 className="font-sans text-base font-bold text-doc-text md:text-lg">{skill.name}</h4>
+        {skill.authorNote ? (
+          <PdfAnnotation
+            note={skill.authorNote}
+            triggerLabel={`Ver nota sobre ${skill.name}`}
+            side="left"
+            className="shrink-0"
+          >
+            <span className="inline-block size-4" aria-hidden />
+          </PdfAnnotation>
+        ) : null}
+      </div>
 
       <div className="h-1 overflow-hidden rounded-sm bg-doc-surface">
-        <div
-          className="h-full w-full bg-accent skill-bar-fill"
-          role="presentation"
-        />
+        <div className="h-full w-full bg-accent skill-bar-fill" role="presentation" />
       </div>
     </section>
   );

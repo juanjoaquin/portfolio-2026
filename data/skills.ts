@@ -11,7 +11,8 @@ export const skills: Skill[] = [
     name: "Next.js",
     category: "frontend",
     level: 90,
-    instrumentation: "App Router, Server Components y SSG/ISR en deploys productivos",
+    instrumentation: "Server Actions, Server Components y SSG/ISR en deploys productivos",
+    authorNote: "Server Actions, Server Components y SSG/ISR en deploys productivos",
   },
   {
     name: "React",

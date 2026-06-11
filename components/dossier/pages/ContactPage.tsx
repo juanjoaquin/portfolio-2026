@@ -1,5 +1,6 @@
 import { ArrowUp, Mail, MapPin } from "lucide-react";
 import type { ReactNode } from "react";
+import { PdfAnnotation } from "@/components/dossier/annotations";
 import type { Profile } from "@/types/portfolio";
 
 function LinkedInIcon({ className }: { className?: string }) {
@@ -59,12 +60,28 @@ export function ContactPage({ profile, onPageSelect }: ContactPageProps) {
       </header>
 
       <div className="flex flex-1 flex-col gap-8">
-        <section className="max-w-2xl">
-          <p className="text-base text-doc-body leading-relaxed md:text-lg">
-            Estas son mis formas de contacto. Podés escribirme por cualquiera de los canales a
-            continuación.
-          </p>
-        </section>
+        <div>
+          <section className="max-w-2xl">
+            <p className="text-base text-doc-body leading-relaxed md:text-lg">
+              Estas son mis formas de contacto. Podés escribirme por cualquiera de los canales a
+              continuación.
+            </p>
+          </section>
+          {profile.contactNote ? (
+            <div className="mt-3 flex justify-end lg:grid lg:grid-cols-3 lg:gap-4">
+              <div className="lg:col-start-3 flex justify-end">
+                <PdfAnnotation
+                  note={profile.contactNote}
+                  triggerLabel="Ver nota del autor"
+                  side="left"
+                  className="shrink-0"
+                >
+                  <span className="inline-block size-4" aria-hidden />
+                </PdfAnnotation>
+              </div>
+            </div>
+          ) : null}
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <ContactCard
