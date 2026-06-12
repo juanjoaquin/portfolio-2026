@@ -6,7 +6,7 @@ export const profile: Profile = {
   dossierLabel: "Desarrollador frontend",
   executiveSummary: [
     "Desarrollador frontend con más de un año y medio de experiencia construyendo productos **SaaS** y soluciones a medida con **TypeScript, Next js, y React**. He trabajado tanto en el desarrollo de **nuevas funcionalidades** como en la evolución de **aplicaciones en producción**, siempre con foco en que el producto sea escalable, fácil de mantener y agradable de usar.",
-    "Mi experiencia incluye aplicar principios de **Clean Architecture**, desarrollar frontend en **entornos basados en microservicios** y trabajar con **Microfrontends** en contextos distribuidos. También he desarrollado e integrado **módulos compartidos** reutilizados entre múltiples aplicaciones independientes.",
+    "Mi experiencia incluye la implementación de **Clean Architecture**, desarrollar frontend en **entornos basados en microservicios** y trabajar con **Microfrontends** en contextos distribuidos. También he desarrollado e integrado **módulos compartidos** reutilizados entre múltiples aplicaciones independientes.",
     "Disfruto mucho construyendo **interfaces** y metiéndome de lleno en la **lógica del frontend**. Me gusta hacer que las cosas funcionen de forma fluida y aportar en equipos donde se debata de tecnología, se compartan ideas y realmente nos involucremos en hacer crecer el producto juntos.",
   ],
   techStack: " TYPESCRIPT, NEXT.JS, REACT, TAILWIND,",
