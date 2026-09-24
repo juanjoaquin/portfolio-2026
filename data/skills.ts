@@ -39,6 +39,18 @@ export const skills: Skill[] = [
     instrumentation: "Lógica de cliente, manipulación del DOM y consumo de APIs",
   },
   {
+    name: "Laravel",
+    category: "backend",
+    level: 78,
+    instrumentation: "APIs REST, autenticación y lógica de negocio en PHP",
+  },
+  {
+    name: "Express.js",
+    category: "backend",
+    level: 80,
+    instrumentation: "Servidores Node.js, rutas HTTP e integración con APIs",
+  },
+  {
     name: "Figma",
     category: "design",
     level: 82,

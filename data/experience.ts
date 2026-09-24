@@ -3,7 +3,7 @@ import type { Experience } from "@/types/portfolio";
 export const experience: Experience[] = [
   {
     company: "Contarg",
-    role: "Frontend Dev",
+    role: "Desarrollador ",
     period: "Abr 2025 — Jun 2026",
     location: "Presencial",
     url: "https://contarg.com",
@@ -15,6 +15,6 @@ export const experience: Experience[] = [
       "Apliqué **patrones de diseño** y estructuras de componentes reutilizables, optimizando los ciclos de desarrollo y manteniendo la consistencia visual y funcional del producto.",
       "Trabajé con **microfrontends** y **packages compartidos**, desarrollando e integrando módulos frontend reutilizables entre múltiples aplicaciones del ecosistema. Cada package encapsula componentes, utilidades y lógica común, permitiendo que distintos productos evolucionen de forma independiente sin duplicar código ni romper la consistencia entre equipos.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Laravel", "Express Js"],
   },
 ];

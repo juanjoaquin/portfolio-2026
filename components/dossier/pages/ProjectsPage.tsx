@@ -26,7 +26,7 @@ export function ProjectsPage({ workProjects, variant = "primary" }: ProjectsPage
             Experiencia Profesional
           </h3>
           <p className="text-doc-body leading-relaxed text-sm md:text-base">
-            Aplicaciones y productos en producción en los que participé como desarrollador frontend.
+            Aplicaciones y productos en producción en los que participé como desarrollador.
           </p>
           <p className="text-doc-body leading-relaxed text-sm md:text-base">
             Selecciona un proyecto para ver más detalles.

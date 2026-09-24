@@ -14,9 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Juan Manuel Joaquin — Desarrollador frontend | Portfolio",
+  title: "Juan Manuel Joaquin — Desarrollador full stack | Portfolio",
   description:
-    "Portfolio interactivo de Juan Manuel Joaquin, desarrollador frontend especializado en React, Next.js, accesibilidad y rendimiento.",
+    "Portfolio interactivo de Juan Manuel Joaquin, desarrollador full stack especializado en React, Next.js, Laravel, Express Js, accesibilidad y rendimiento.",
 };
 
 export default function RootLayout({

@@ -12,7 +12,7 @@ const CATEGORY_LABELS: Record<SkillCategory, string> = {
   design: "Diseño",
 };
 
-const CATEGORY_ORDER: SkillCategory[] = ["frontend", "design"];
+const CATEGORY_ORDER: SkillCategory[] = ["frontend", "backend", "design"];
 
 function SkillEntry({ skill, isLast }: { skill: Skill; isLast: boolean }) {
   return (
